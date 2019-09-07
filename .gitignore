@@ -1,0 +1,8 @@
+*.html
+*.bak
+*-bak
+*-cache.lib
+*.zip
+sym-lib-table
+gerber
+*.csv
