@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:1-wire_bus_master-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -14,13 +15,17 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L 1wire:DS2482-800 DS2482
+L 1-wire_bus_master-rescue:DS2482-800-1wire DS2482
 U 1 1 5D7116E9
 P 6350 3650
 F 0 "DS2482" H 6350 4215 50  0000 C CNN
 F 1 "DS2482-800" H 6350 4124 50  0000 C CNN
 F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 6350 3800 50  0001 C CNN
 F 3 "" H 6350 3650 50  0001 C CNN
+F 4 "D" H 6350 3650 50  0001 C CNN "Spice_Primitive"
+F 5 "DS2482-800" H 6350 3650 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 6350 3650 50  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "maxim.lib" H 6350 3650 50  0001 C CNN "Spice_Lib_File"
 	1    6350 3650
 	1    0    0    -1  
 $EndComp
@@ -152,23 +157,23 @@ $EndComp
 $Comp
 L power:+5V #PWR04
 U 1 1 5D71AA79
-P 5800 2950
-F 0 "#PWR04" H 5800 2800 50  0001 C CNN
-F 1 "+5V" H 5815 3123 50  0000 C CNN
-F 2 "" H 5800 2950 50  0001 C CNN
-F 3 "" H 5800 2950 50  0001 C CNN
-	1    5800 2950
+P 5800 2750
+F 0 "#PWR04" H 5800 2600 50  0001 C CNN
+F 1 "+5V" H 5815 2923 50  0000 C CNN
+F 2 "" H 5800 2750 50  0001 C CNN
+F 3 "" H 5800 2750 50  0001 C CNN
+	1    5800 2750
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR03
 U 1 1 5D71AAA8
-P 5500 2950
-F 0 "#PWR03" H 5500 2800 50  0001 C CNN
-F 1 "+5V" H 5515 3123 50  0000 C CNN
-F 2 "" H 5500 2950 50  0001 C CNN
-F 3 "" H 5500 2950 50  0001 C CNN
-	1    5500 2950
+P 5500 2750
+F 0 "#PWR03" H 5500 2600 50  0001 C CNN
+F 1 "+5V" H 5515 2923 50  0000 C CNN
+F 2 "" H 5500 2750 50  0001 C CNN
+F 3 "" H 5500 2750 50  0001 C CNN
+	1    5500 2750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -237,10 +242,10 @@ F 3 "" H 5400 3650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x12 J2
+L Connector_Generic:Conn_01x12 BUS1-4
 U 1 1 5D73B072
 P 7800 4150
-F 0 "J2" H 7880 4142 50  0000 L CNN
+F 0 "BUS1-4" H 7880 4142 50  0000 L CNN
 F 1 "Conn_01x12" H 7880 4051 50  0000 L CNN
 F 2 "1-wire_bus_master:OSTVN12A150" H 7800 4150 50  0001 C CNN
 F 3 "~" H 7800 4150 50  0001 C CNN
@@ -322,10 +327,10 @@ F 3 "" H 7600 4650 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x12 J1
+L Connector_Generic:Conn_01x12 BUS5-8
 U 1 1 5D73BDB5
 P 7800 2850
-F 0 "J1" H 7880 2842 50  0000 L CNN
+F 0 "BUS5-8" H 7880 2842 50  0000 L CNN
 F 1 "Conn_01x12" H 7880 2751 50  0000 L CNN
 F 2 "1-wire_bus_master:OSTVN12A150" H 7800 2850 50  0001 C CNN
 F 3 "~" H 7800 2850 50  0001 C CNN
@@ -427,5 +432,27 @@ F 2 "" H 7600 3350 50  0001 C CNN
 F 3 "" H 7600 3350 50  0001 C CNN
 	1    7600 3350
 	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Jumper_NO_Small JP1
+U 1 1 5D95D559
+P 5500 2850
+F 0 "JP1" V 5450 2700 50  0000 L CNN
+F 1 "JMP_PU_SDA" V 5550 2350 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x01_P2.54mm_Vertical" H 5500 2850 50  0001 C CNN
+F 3 "~" H 5500 2850 50  0001 C CNN
+	1    5500 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Jumper_NO_Small JP2
+U 1 1 5D95D6F5
+P 5800 2850
+F 0 "JP2" V 5754 2898 50  0000 L CNN
+F 1 "JMP_PU_SCL" V 5845 2898 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x01_P2.54mm_Vertical" H 5800 2850 50  0001 C CNN
+F 3 "~" H 5800 2850 50  0001 C CNN
+	1    5800 2850
+	0    1    1    0   
 $EndComp
 $EndSCHEMATC
